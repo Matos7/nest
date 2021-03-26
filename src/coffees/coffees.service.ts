@@ -1,7 +1,5 @@
 import { Coffee } from './entities/coffee.entity';
 import {
-  HttpException,
-  HttpStatus,
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
