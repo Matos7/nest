@@ -6,10 +6,14 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Coffee } from './entities/coffee.entity';
 
+export class MockCoffeesService {}
+
 @Module({
-  imports: [TypeOrmModule.forFeature([Coffee, Flavor, Event])],
-  controllers: [CoffeesController],
-  providers: [CoffeesService],
-  exports: [CoffeesService],
+  providers: [
+    {
+      provide: CoffeesService,
+      useValue: new MockCoffeesService(), // <-- mock implementation
+    },
+  ],
 })
 export class CoffeesModule {}
