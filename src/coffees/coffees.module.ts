@@ -13,7 +13,7 @@ import { Coffee } from './entities/coffee.entity';
   providers: [
     CoffeesService,
     {
-      provide: COFFEE_BRANDS, // 👈
+      provide: COFFEE_BRANDS, 
       useValue: ['buddy brew', 'nescafe'],
       scope: Scope.TRANSIENT,
     },
