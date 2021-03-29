@@ -3,7 +3,7 @@ import { Event } from './../events/entities/event.entity';
 import { Flavor } from './entities/flavor.entity';
 import { CoffeesService } from './coffees.service';
 import { CoffeesController } from './coffees.controller';
-import { Module } from '@nestjs/common';
+import { Module, Scope } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Coffee } from './entities/coffee.entity';
 
@@ -14,7 +14,8 @@ import { Coffee } from './entities/coffee.entity';
     CoffeesService,
     {
       provide: COFFEE_BRANDS, // 👈
-      useValue: ['buddy brew', 'nescafe'], // array of coffee brands,
+      useValue: ['buddy brew', 'nescafe'],
+      scope: Scope.TRANSIENT,
     },
   ],
   exports: [CoffeesService],
